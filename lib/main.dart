@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({super.key, required this.title});  
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +38,26 @@ class MyHomePage extends StatelessWidget {
           'Hello, World!',
         ),
       ),
+      floatingActionButton: Container(
+        width: double.infinity, // Makes it full width
+        margin: EdgeInsets.symmetric(
+            horizontal: 16.0, vertical: 8.0), // Add some margins
+        child: FloatingActionButton.extended(
+          onPressed: () {
+            print("Extended FAB Pressed");
+          },
+          label: Text("Add Item"),
+          icon: Icon(Icons.add),
+          backgroundColor: Colors.blue, // Customize the background color
+          shape: StadiumBorder(
+            side: BorderSide(color: Colors.white, width: 2), // White border
+          ),
+        ),
+      ),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.centerFloat, // Center at bottom
+      backgroundColor:
+          Colors.blue, // Background to make the white border visible
     );
   }
 }
